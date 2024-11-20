@@ -1,0 +1,261 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+\input{glyphtounicode}
+
+% -------------------- FONT OPTIONS --------------------
+% sans-serif
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% serif
+% \usepackage{charter}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-1in} % Default was -.5in
+\addtolength{\textheight}{1.5in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Subsection formatting
+\titleformat{\subsection}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{\hspace{-.15in}}{0em}{}[\color{black}\vspace{-8pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% -------------------- CUSTOM COMMANDS --------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlength{\footskip}{2.08003pt}
+
+% -------------------- START OF DOCUMENT --------------------
+\begin{document}
+
+% -------------------- HEADING--------------------
+\begin{flushright}
+  % \vspace{-4pt}
+  \color{gray}
+  \item
+  % Last Updated on October 6th, 2024
+\end{flushright}
+
+\vspace{-5pt}
+
+\begin{center}
+    \textbf{\Huge \scshape Dhruv Puri} \\ \vspace{8pt}
+    \small 
+    \faIcon{github}
+    \href{https://github.com/slashexx}{\underline{github.com/slashexx}} $  $
+    % \faIcon{code}
+    % \href{https://www.mattydoe.com}
+    % {\underline{mattydoe.com}} $  $
+    \faIcon{linkedin}
+    \href{https://linkedin.com/in/dhruvpuri-slashex}{\underline{linkedin.com/in/dhruvpuri-slashex}} $  $
+    \faIcon{envelope}
+    \href{mailto:dhruvpuri.35@gmail.com}
+    {\underline{dhruvpuri.35@gmail.com}}
+\end{center}
+
+% -------------------- EDUCATION --------------------
+\section{Education}
+  \resumeSubHeadingListStart
+  
+    \resumeSubheading
+      {Dayananda Sagar College of Engineering}{Sept. 2027}
+      {B.E. Information Science}{CGPA: 9.57}
+      
+    % \resumeSubheading
+    %   {Little High School \footnotesize{(Dual Enrollment at Mission Community College)}}{June 2022}
+    %   {}{GPA: 4.44/4.0}
+
+    % \vspace{10pt}
+
+    % \subsection{Coursework}
+    %   \textbf{Courses:} Object-Oriented Programming, Data Structures \& Algorithms, Embedded Systems, Discrete Math, Linear Algebra, Calculus, Physics, Probability \& Statistics \\
+    %   \textbf{Awards:} Dean's Honor List (3x), AP Scholar with Distinction (2x), World Language History Award (Spanish)
+
+  \resumeSubHeadingListEnd
+% -------------------- SKILLS --------------------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    
+     \textbf{Languages}{: Java, Go, Typescript, Python} \\
+     \textbf{Frameworks and Libraries}{: Node.js, Express, Next.js} \\
+     
+     \textbf{Tools}{: Linux, Git, GitHub, Firebase, Docker, Kubernetes, GitOps}
+     
+     % \textbf{Frameworks}{: React, Node.js, Flask, JUnit, WordPress, Material-UI, FastAPI} \\
+     
+     % \textbf{Libraries}{: pandas, NumPy, Matplotlib}
+     
+    }}
+ \end{itemize}
+ \vspace{-13pt}
+ % ------------------Open source----------
+\section{Open Source Contributions}  
+\resumeSubHeadingListStart  
+
+\resumeProjectHeading  
+{\textbf{KCL Lang (CNCF)} $|$ \footnotesize\emph{Rust, Crypto}}{Oct. 2024}  
+\resumeItemListStart  
+\resumeItem{Added support for \textbf{filesha512} and \textbf{fileblake3} hashing functions by contributing to the crypto module of the KCL programming language, significantly enhancing its \textbf{cryptographic capabilities}.}  
+\resumeItem{Implemented efficient file hashing operations with robust error handling, improving reliability and performance across diverse file types.}  
+\resumeItemListEnd  
+
+% \resumeProjectHeading  
+% {\textbf{TipoHiZ} $|$ \footnotesize\emph{TypeScript, Husky, ESLint}}{Oct. 2024}  
+% \resumeItemListStart  
+% \resumeItem{Upgraded \textbf{ESLint} for compatibility, set up \textbf{Husky} for pre-commit checks, and managed dependencies to ensure project stability.}  
+% \resumeItemListEnd  
+
+\resumeProjectHeading  
+{\textbf{Keploy} $|$ \footnotesize\emph{Python, PostgreSQL, Sanic}}{Nov. 2024}  
+\resumeItemListStart  
+\resumeItem{Built an \textbf{Employee Management System} using \textbf{Sanic} and \textbf{PostgreSQL} to demonstrate seamless integration with Keploy for automated testing and debugging.}  
+\resumeItem{Implemented efficient database operations and RESTful APIs, ensuring scalability and maintainability.}  
+% \resumeItem{Worked closely with maintainers to integrate the application into the repository, contributing to enhanced testing frameworks.}  
+\resumeItemListEnd  
+
+\resumeProjectHeading
+{\textbf{Hashgraph-Solo} $|$ \footnotesize\emph{TypeScript, TypeDoc, ESLint, Hugo}}{Oct. 2024}
+\resumeItemListStart
+\resumeItem{Upgraded the codebase to use \textbf{TypeDoc} in place of \textbf{JSDoc}, streamlining TypeScript integration.}
+\resumeItem{Configured \textbf{ESLint} with \textbf{eslint-plugin-tsdoc} to enforce TSDoc standards and improve code quality.}
+\resumeItem{Collaborated with maintainers to \textbf{resolve pipeline} issues and ensure seamless integration with \textbf{Hugo} builds.}
+\resumeItemListEnd
+
+
+% \resumeProjectHeading  
+% {\textbf{VLearnUp E-Learning Hub} $|$ \footnotesize\emph{React, Python, Gemini}}{Oct. 2024}  
+% \resumeItemListStart  
+% \resumeItem{Developed an \textbf{AI chatbot} and contributed to the frontend using \textbf{React} and backend logic with \textbf{Python}, enabling robust user query handling as part of an open-source e-learning platform for \textbf{Hacktoberfest 2024}.}  
+% \resumeItemListEnd  
+
+\resumeSubHeadingListEnd
+
+\vspace{-11pt}  
+
+% -------------------- PROJECTS --------------------
+\section{Projects}
+    \resumeSubHeadingListStart
+
+\resumeProjectHeading
+{\textbf{CodeBrewery} $|$ \footnotesize\emph{Go, React, Docker, Kubernetes, GitHub Actions}}{\faIcon{github}\href{https://github.com/slashexx/CodeBrewery}{\underline{CodeBrewery}}}
+
+\resumeItemListStart
+    \resumeItem{Developed a cutting-edge online code editor allowing users to \textbf{write, compile, and run} code across multiple languages, leveraging a \textbf{microservices architecture} with \textbf{Go} for the backend.}
+    \resumeItem{Employed \textbf{Docker} for \textbf{containerization} and \textbf{Kubernetes} for orchestration, ensuring seamless deployment and scalability.}
+    \resumeItem{Set up \textbf{CI/CD} pipelines with \textbf{GitHub Actions} and \textbf{YAML} to automate testing and deployment, improving development efficiency.}
+    \resumeItem{Implemented thorough testing for backend services in \textbf{Go} and frontend components in \textbf{Jest} to maintain code quality.}
+    \resumeItem{Configured \textbf{Docker Compose} for local development, streamlining project setup. \href{https://codebrewery.vercel.app}{\textcolor{blue}{[Link]}}}
+\resumeItemListEnd
+
+
+
+
+
+\resumeProjectHeading
+{\textbf{KisanSetu} $|$ \footnotesize\emph{Node.js, Express, WebSocket, Solidity, Docker, Firebase}}{\faIcon{github}\href{https://github.com/slashexx/kisansetu}{\underline{Kisansetu}}}
+
+\resumeItemListStart
+    \resumeItem{Developed a blockchain platform for secure contract farming agreements between farmers and buyers.}
+    \resumeItem{Integrated \textbf{smart contracts} in \textbf{Solidity} for transparent and reliable transactions.}
+    \resumeItem{Implemented features like \textbf{real-time price negotiation}, \textbf{direct communication}, and \textbf{automated payments}.}
+    \resumeItem{Deployed the application with \textbf{Docker} and used \textbf{Firebase} for authentication and data management. \href{kisansetu.onrender.com}{\textcolor{blue}{[Link]}}}
+\resumeItemListEnd
+        
+\resumeProjectHeading
+{\textbf{Pawsitivity} $|$ \footnotesize\emph{Node.js, Express, Firebase}}{\faIcon{github}\href{https://github.com/slashexx/mini-project}{\underline{Pawsitivity}}}
+
+\resumeItemListStart
+    \resumeItem{Developed a web platform for connecting users with adoptable animals, featuring \textbf{profile postings}, \textbf{AI chatbot} for recommendations, and \textbf{user authentication}.}
+    \resumeItem{Implemented \textbf{photo uploads} for enhanced interaction and showcased listings on the site. \href{https://pawsitivity.onrender.com}{\textcolor{blue}{[Link]}}}
+\resumeItemListEnd
+
+
+% \resumeProjectHeading
+% {\textbf{ConnectAble} $|$ \footnotesize\emph{Node.js, Express, Firebase}}{\faIcon{github}\href{https://github.com/slashexx/connectable}{\underline{Connectable}}}
+% \resumeItemListStart
+%     \resumeItem{Developed a web platform to empower the \textbf{specially abled community} by enabling users to \textbf{host events} and \textbf{connect} in a supportive space.}
+%     \resumeItem{Integrated \textbf{user authentication} and \textbf{Stripe} for donations. \href{https://connect-able.onrender.com}{\textcolor{blue}{[Link]}}}
+% \resumeItemListEnd
+
+    \resumeSubHeadingListEnd
+\vspace{-9.5pt}
+% -------------------- EXTRA-CURRICULAR --------------------
+\section{Extracurricular} \vspace{0.5pt}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0.08em, topsep=1pt]
+    \item \textbf{Winner:} Clone Wars Competition held by CSE department, DSCE.
+    \item \textbf{2nd Runner Up:} Capture the Flag Competition hosted by Point Blank 
+    \item \textbf{2nd Runner Up:} HackSprint, part of Ignite 2.0
+    \item \textbf{2* at Codechef:} Rating: 1414
+\end{itemize}
+
+\end{document}
