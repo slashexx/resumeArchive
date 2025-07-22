@@ -19,11 +19,20 @@ jobs:
       with:
         fetch-depth: 0
     
-    - name: Setup LaTeX
-      uses: xu-cheng/latex-action@v3
-      with:
-        root_file: main.tex
-        args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+    - name: Install LaTeX
+      run: |
+        sudo apt update
+        sudo apt install -y texlive-latex-base texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra
+    
+    - name: Compile LaTeX to PDF
+      run: |
+        pdflatex -interaction=nonstopmode main.tex
+        if [ ! -f main.pdf ]; then
+          echo "LaTeX compilation failed."
+          exit 1
+        fi
+        echo "✅ PDF compilation successful!"
+        ls -la main.pdf
     
     - name: Generate PDF filename with current date
       id: generate-filename
@@ -36,43 +45,33 @@ jobs:
         echo "pdf_filename=$filename" >> $GITHUB_OUTPUT
         echo "current_date=$current_date" >> $GITHUB_OUTPUT
     
-    - name: Rename and move PDF
+    - name: Rename PDF and prepare for commit
       run: |
         pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
         
-        # Check if main.pdf was generated
-        if [ ! -f "main.pdf" ]; then
-          echo "Error: main.pdf was not generated!"
-          exit 1
-        fi
+        # Copy to new filename (keeping original for reference)
+        cp main.pdf "$pdf_filename"
         
-        # Rename the PDF to follow naming convention
-        mv main.pdf "$pdf_filename"
-        
-        echo "PDF renamed to: $pdf_filename"
+        echo "PDF copied to: $pdf_filename"
         ls -la *.pdf
-    
-    - name: Check if PDF already exists
-      id: check-existing
-      run: |
-        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
         
-        if [ -f "$pdf_filename" ]; then
-          echo "PDF with today's date already exists, will overwrite it"
-          echo "pdf_exists=true" >> $GITHUB_OUTPUT
-        else
-          echo "New PDF will be created"
-          echo "pdf_exists=false" >> $GITHUB_OUTPUT
-        fi
+        # Configure git
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
     
-    - name: Commit and push PDF
+    - name: Check if PDF already exists and commit
       run: |
         pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
         current_date="${{ steps.generate-filename.outputs.current_date }}"
         
-        # Configure git
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        # Check if file exists and remove old version if it does
+        if [ -f "$pdf_filename" ] && git ls-files --error-unmatch "$pdf_filename" > /dev/null 2>&1; then
+          echo "Removing existing PDF for today..."
+          git rm "$pdf_filename"
+          commit_message="🤖 Update resume PDF: $pdf_filename"
+        else
+          commit_message="🤖 Generate new resume PDF: $pdf_filename"
+        fi
         
         # Add the new PDF
         git add "$pdf_filename"
@@ -81,19 +80,10 @@ jobs:
         if git diff --staged --quiet; then
           echo "No changes to commit (PDF might be identical)"
         else
-          if [ "${{ steps.check-existing.outputs.pdf_exists }}" = "true" ]; then
-            commit_message="🤖 Update resume PDF: $pdf_filename"
-          else
-            commit_message="🤖 Generate new resume PDF: $pdf_filename"
-          fi
-          
           git commit -m "$commit_message"
-          git push
-          
-          echo "PDF committed and pushed successfully!"
+          git push origin main
+          echo "✅ PDF committed and pushed successfully!"
         fi
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Create summary
       run: |
