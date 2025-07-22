@@ -1,0 +1,114 @@
+name: Convert LaTeX to PDF
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'main.tex'
+  workflow_dispatch:
+
+jobs:
+  latex-to-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup LaTeX
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: main.tex
+        latexmk_use_xelatex: true
+        args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+    
+    - name: Generate PDF filename with current date
+      id: generate-filename
+      run: |
+        # Get current date in YY_MM_DD format
+        current_date=$(date +%y_%m_%d)
+        filename="Dhruv_s_resume___${current_date}.pdf"
+        
+        echo "Generated filename: $filename"
+        echo "pdf_filename=$filename" >> $GITHUB_OUTPUT
+        echo "current_date=$current_date" >> $GITHUB_OUTPUT
+    
+    - name: Rename and move PDF
+      run: |
+        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
+        
+        # Check if main.pdf was generated
+        if [ ! -f "main.pdf" ]; then
+          echo "Error: main.pdf was not generated!"
+          exit 1
+        fi
+        
+        # Rename the PDF to follow naming convention
+        mv main.pdf "$pdf_filename"
+        
+        echo "PDF renamed to: $pdf_filename"
+        ls -la *.pdf
+    
+    - name: Check if PDF already exists
+      id: check-existing
+      run: |
+        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
+        
+        if [ -f "$pdf_filename" ]; then
+          echo "PDF with today's date already exists, will overwrite it"
+          echo "pdf_exists=true" >> $GITHUB_OUTPUT
+        else
+          echo "New PDF will be created"
+          echo "pdf_exists=false" >> $GITHUB_OUTPUT
+        fi
+    
+    - name: Commit and push PDF
+      run: |
+        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
+        current_date="${{ steps.generate-filename.outputs.current_date }}"
+        
+        # Configure git
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Add the new PDF
+        git add "$pdf_filename"
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "No changes to commit (PDF might be identical)"
+        else
+          if [ "${{ steps.check-existing.outputs.pdf_exists }}" = "true" ]; then
+            commit_message="🤖 Update resume PDF: $pdf_filename"
+          else
+            commit_message="🤖 Generate new resume PDF: $pdf_filename"
+          fi
+          
+          git commit -m "$commit_message"
+          git push
+          
+          echo "PDF committed and pushed successfully!"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Create summary
+      run: |
+        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
+        current_date="${{ steps.generate-filename.outputs.current_date }}"
+        
+        echo "## 📄 LaTeX to PDF Conversion Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- **Source File:** \`main.tex\`" >> $GITHUB_STEP_SUMMARY
+        echo "- **Generated PDF:** \`$pdf_filename\`" >> $GITHUB_STEP_SUMMARY
+        echo "- **Date:** $current_date" >> $GITHUB_STEP_SUMMARY
+        echo "- **Status:** ✅ Successfully converted and committed" >> $GITHUB_STEP_SUMMARY
+        
+        # Get file size
+        if [ -f "$pdf_filename" ]; then
+          file_size=$(ls -lh "$pdf_filename" | awk '{print $5}')
+          echo "- **File Size:** $file_size" >> $GITHUB_STEP_SUMMARY
+        fi
