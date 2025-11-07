@@ -1,5 +1,6 @@
 \documentclass[letterpaper,11pt]{article}
 
+\usepackage{lmodern}
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
@@ -71,14 +72,14 @@
 }
 
 \newcommand{\resumeSubSubheading}[2]{
-    \item
+  \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
     \end{tabular*}\vspace{-7pt}
 }
 
 \newcommand{\resumeProjectHeading}[2]{
-    \item
+  \item
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \small#1 & #2 \\
     \end{tabular*}\vspace{-7pt}
@@ -92,205 +93,186 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\setlength{\footskip}{2.08003pt}
+\setlength{\footskip}{4.08003pt}
 
 % -------------------- START OF DOCUMENT --------------------
 \begin{document}
-
+\vspace*{-7.75pt} % Adds a little space at the top
 % -------------------- HEADING--------------------
-\begin{flushright}
-  \color{gray}
-  \item
-\end{flushright}
-
-\vspace{-25pt}
+% Removed the flushright block and negative vspace
 
 \begin{center}
-    \textbf{\Huge \scshape Dhruv Puri} \\ \vspace{8pt}
-    \small 
-    \faIcon{briefcase}
-    \href{https://dhruvpuri.xyz/}
-    {\underline{dhruvpuri.xyz}}
-    \faIcon{phone}
-    \href{tel:+919149407326}
-    {\underline{+91 9149407326}}
-    \faIcon{github}
-    \href{https://github.com/slashexx}{\underline{github.com/slashexx}} $  $
-    \faIcon{linkedin}
-    \href{https://linkedin.com/in/dhruvpuri-slashex}{\underline{in/dhruvpuri-slashex}} $  $
-    \faIcon{envelope}
-    \href{mailto:dhruvpuri.35@gmail.com}
-    {\underline{dhruvpuri.35@gmail.com}}
-    
+  \textbf{\Huge \scshape Dhruv Puri} \\ \vspace{8pt}
+  \small 
+  \faIcon{briefcase}
+  \href{https://dhruvpuri.xyz/}
+  {\underline{dhruvpuri.xyz}} \ 
+  \faIcon{phone}
+  \href{tel:+919149407326}
+  {\underline{+91 9149407326}} \ 
+  \faIcon{github}
+  \href{https://github.com/slashexx}{\underline{github.com/slashexx}} \ 
+  \faIcon{linkedin}
+  \href{https://linkedin.com/in/dhruvpuri-slashex}{\underline{in/dhruvpuri-slashex}} \ 
+  \faIcon{envelope}
+  \href{mailto:dhruvpuri.35@gmail.com}
+  {\underline{dhruvpuri.35@gmail.com}}
 \end{center}
 
+\vspace{-10pt}
 % -------------------- EDUCATION --------------------
 \section{Education}
-  \resumeSubHeadingListStart
-  
-    \resumeSubheading
-      {Dayananda Sagar College of Engineering}{Sept. 2027}
-      {B.E. Information Science}{CGPA: 9.33}
-  \resumeSubHeadingListEnd
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Dayananda Sagar College of Engineering}{Sept. 2027}
+    {B.E. Information Science}{CGPA: 9.33}
+\resumeSubHeadingListEnd
+
+\vspace{-9pt}
 % -------------------- SKILLS --------------------
 \section{Skills}
- \begin{itemize}[leftmargin=0.15in, label={}]
-    \small{\item{
-    
-     \textbf{Languages}{: Java, Go, Typescript, Python} \\
-     \textbf{Frameworks and Libraries}{: Node.js, Express, Next.js, Gin} \\
-     
-     \textbf{Tools}{: Linux, Git, GitHub Actions, Firebase, Docker, Kubernetes}     
-     
-    }}
- \end{itemize}
- \vspace{-15pt}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages}{: Java, Go, Typescript, Python} \\
+    \textbf{Frameworks and Libraries}{: Node.js, Express, Next.js, Gin} \\
+    \textbf{Tools}{: Linux, Git, GitHub Actions, Terragrunt, Terraform, Docker, Kubernetes}     
+  }}
+\end{itemize}
+\vspace{-15pt}
  
 % -------------------- EXPERIENCE --------------------
 \section{Experience}
 \resumeSubHeadingListStart
-
-\resumeSubheading
-{\href{https://lfx.linuxfoundation.org/tools/mentorship}{\underline{Linux Foundation Mentorship}} \href{https://mentorship.lfx.linuxfoundation.org/project/6ad81eb7-295b-4ec8-b9b4-db20e1f3a346}{\faIcon{link}}}{Aug 2025 – Present}
-{LFX Mentee at CNCF: Kyverno : Go, Kubernetes, CEL, Policy-as-Code}{Remote · San Jose, USA}
-\resumeItemListStart
-\resumeItem{Contributing to \textbf{CNCF: Kyverno}, a Kubernetes-native policy engine.}
-\resumeItem{Implementing \textbf{namespaced versions} of \textbf{CEL-based policies} which are ValidatingPolicy, MutatingPolicy, ImageValidatingPolicy, GeneratingPolicy, DeletingPolicy.}
-\resumeItem{Integrating \textbf{RBAC controls} for \textbf{namespace-scoped} policy management and writing comprehensive tests, documentation, and examples.}
-\resumeItemListEnd
-
-
-\resumeSubheading
-{\href{https://summerofcode.withgoogle.com}{\underline{Google Summer of Code}} \href{https://summerofcode.withgoogle.com/programs/2025/projects/hZAZORpk}{\faIcon{link}}}{May 2025 – Present}
-{Contributor at Prometheus Operator : Go, PrometheusAgent, DaemonSets, CEL}{Remote · Raleigh, USA}
-\resumeItemListStart
-\resumeItem{Stabilizing and enhancing the \textbf{DaemonSet mode} for the \textbf{Prometheus Agent} in \textbf{Prometheus Operator}.}
-\resumeItem{Added robust \textbf{CEL-based validation rules} for Custom Resource Definitions (CRDs) with comprehensive runtime fallback mechanisms and extensive test coverage for DaemonSet configurations.}
-
-% \resumeItem{Investigating \textbf{EndpointSlice-based service discovery} for scalability, extending integration tests to multi-node \textbf{KIND} clusters, and contributing example manifests with documentation.}
-\resumeItem{Expanded \textbf{AlertManager} by implementing \textbf{RocketChat integration} in the \textbf{AlertManagerConfig CRD}.}
-\resumeItemListEnd
-
-
-\resumeSubheading
-{\href{https://hooman.digital/}{\underline{Hooman Digital}}}{April 2025 – Present}
-{DevOps Engineer: Docker, Golang, Terraform, Ollama, vLLM, LLMs, MLOps, Jinja}{Intern · Remote}
-\resumeItemListStart
-\resumeItem{Architected and deployed \textbf{GPU-accelerated LLM infrastructure} using \textbf{vLLM} and \textbf{Docker}, enabling scalable inference for production workloads with optimized CUDA memory management.}
-\resumeItem{Developed \textbf{OpenAI-compatible API server} using \textbf{Ollama} and \textbf{FastAPI}, implementing GPU optimization with automatic CPU fallback mechanisms for enhanced reliability.}
-% \resumeItem{Designed \textbf{dynamic deployment templates} with \textbf{Jinja2} to automate ML model provisioning, reducing deployment time from hours to minutes through infrastructure-as-code practices.}
-% \resumeItem{Built \textbf{unified proxy server} providing developer-facing APIs and streamlined access to pre-deployed models, improving system integration and developer experience.}
-\resumeItem{\textbf{Built and published} a production-ready \href{https://registry.terraform.io/providers/HoomanDigital/nosana/latest}{\underline{\textbf{Terraform provider}}} using \textbf{Go}, integrating with \textbf{Nosana CLI} to automate deployment of GPU-accelerated containers on decentralized infrastructure.}
-\resumeItemListEnd
-
-\resumeSubheading
-{\href{https://wecofy.com/}{\underline{WeCofy}}}{Dec 2024 – Apr 2025}
-{Full-Stack Developer: Next.js, Node.js, Express, MongoDB}{Intern · Remote}
-\resumeItemListStart
-  \resumeItem{Contributed to \textbf{Juristo}, an \textbf{AI-powered legal platform}, enhancing accessibility and scalability through full-stack feature development.}
-  \resumeItem{Built a \textbf{developer API service} with subscription-tier logic, dynamic \textbf{rate-limiting}, and integrated \textbf{ZeptoMail \& Firebase Cloud Messaging} for transactional emails and real-time notifications.}
-\resumeItemListEnd
-
+  \resumeSubheading
+    {\href{https://aspora.com}{\underline{Aspora (YC W22)}}}{Nov 2025 – Present}
+    {DevOps Engineer: Terragrunt, Terraform, AWS}{Onsite · Bangalore}
+  \resumeItemListStart
+    \resumeItem{Revamped the \textbf{environment lifecycle} by introducing a structured \textbf{Dev to Stage to Prod} workflow, replacing direct dev-to-production deployments.}
+    \resumeItem{Optimizing \textbf{CloudWatch alarms} and operational thresholds to improve monitoring reliability and reduce false alerts.}
+    \resumeItem{Managing \textbf{AWS IAM, RDS access}, and service-level integrations including \textbf{ECS} and \textbf{SQS} setup.}
   \resumeItemListEnd
 
+  \resumeSubheading
+    {\href{https://lfx.linuxfoundation.org/tools/mentorship}{\underline{Linux Foundation Mentorship - Kyverno}} \href{https://mentorship.lfx.linuxfoundation.org/project/6ad81eb7-295b-4ec8-b9b4-db20e1f3a346}{\faIcon{link}}}{Aug 2025 – Present}
+    {LFX Mentee at CNCF: Kyverno : Go, Kubernetes, CEL, Policy-as-Code}{Remote · San Jose, USA}
+  \resumeItemListStart
+    \resumeItem{Contributing to \textbf{CNCF: Kyverno}, a Kubernetes-native policy engine.}
+    \resumeItem{Developed CEL-based policy resources - \textbf{ValidatingPolicy, ImageValidatingPolicy}, and \textbf{DeletingPolicy} - enabling namespace-specific policy enforcement in Kyverno.}
+    \resumeItem{Integrated \textbf{RBAC controls} for namespace-scoped policy management and contributed tests, documentation, and usage examples.}
+  \resumeItemListEnd
 
-\vspace{-9pt}
+  \resumeSubheading
+    {\href{https://summerofcode.withgoogle.com}{\underline{Google Summer of Code - Prometheus Operator}} \href{https://summerofcode.withgoogle.com/programs/2025/projects/hZAZORpk}{\faIcon{link}}}{May 2025 – Sep 2025}
+    {Contributor at Prometheus Operator : Go, PrometheusAgent, DaemonSets, CEL}{Remote · Raleigh, USA}
+  \resumeItemListStart
+    \resumeItem{Stabilizing and enhancing the \textbf{DaemonSet mode} for the \textbf{Prometheus Agent} in \textbf{Prometheus Operator}.}
+    \resumeItem{Added robust \textbf{CEL-based validation rules} for Custom Resource Definitions (CRDs) with comprehensive runtime fallback mechanisms and extensive test coverage for DaemonSet configurations.}
+    % \resumeItem{Investigating \textbf{EndpointSlice-based service discovery} for scalability, extending integration tests to multi-node \textbf{KIND} clusters, and contributing example manifests with documentation.}
+    \resumeItem{Expanded \textbf{AlertManager} by implementing \textbf{RocketChat integration} in the \textbf{AlertManagerConfig CRD}.}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {\href{https://hooman.digital/}{\underline{Hooman Digital}}}{Apr 2025 – Sep 2025}
+    {DevOps Engineer: Docker, Golang, Terraform, vLLM, Ollama, MLOps}{Intern · Remote}
+  \resumeItemListStart
+    \resumeItem{Deployed \textbf{GPU-accelerated LLM infrastructure} with \textbf{vLLM} and \textbf{Docker}, enabling scalable inference and optimized CUDA utilization.}
+    % \resumeItem{Developed an \textbf{OpenAI-compatible API server} using \textbf{Ollama} and \textbf{FastAPI}, with GPU optimization and CPU fallback for reliability.}
+    \resumeItem{Authored a production-grade \href{https://registry.terraform.io/providers/HoomanDigital/nosana/latest}{\underline{\textbf{Terraform provider}}} in \textbf{Go}, automating GPU container deployment on decentralized infrastructure.}
+  \resumeItemListEnd
+
+  \resumeSubheading
+    {\href{https://wecofy.com/}{\underline{WeCofy}}}{Dec 2024 – Apr 2025}
+    {Full-Stack Developer: Next.js, Node.js, Express, MongoDB}{Intern · Remote}
+  \resumeItemListStart
+    \resumeItem{Enhanced \textbf{Juristo}, an \textbf{AI-powered legal platform}, through full-stack feature development improving scalability and accessibility.}
+    \resumeItem{Built a \textbf{developer API service} with subscription tiers, dynamic \textbf{rate-limiting}, and integrated \textbf{ZeptoMail} \& \textbf{Firebase Cloud Messaging}.}
+  \resumeItemListEnd
+% \resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-15pt}
 
 % -------------------- PROJECTS --------------------
 \section{Projects}
-    \resumeSubHeadingListStart
-\resumeProjectHeading
-{\textbf{Lumine} $|$ \footnotesize\emph{Go, TypeScript, AWS, Terraform, GitHub Actions, Prometheus} \href{https://lumineops.vercel.app}{[\underline{Link}]}}{\faIcon{github}\href{https://github.com/Nexusrex18/lumine}{ \underline{Code}}}
-
-\resumeItemListStart
+\resumeSubHeadingListStart
+  \resumeProjectHeading
+    {\textbf{Lumine} $|$ \footnotesize\emph{Go, TypeScript, AWS, Terraform, GitHub Actions, Prometheus} \href{https://lumineops.vercel.app}{[\underline{Link}]}}{\faIcon{github}\href{https://github.com/Nexusrex18/lumine}{ \underline{Code}}}
+  \resumeItemListStart
     \resumeItem{Built an \textbf{interactive CLI tool} to bootstrap \textbf{CI/CD, infrastructure, and monitoring} workflows for developers and startups.}
     \resumeItem{Integrated \textbf{AWS services} with \textbf{Terraform} and automated pipelines using \textbf{GitHub Actions \& Jenkins} for provisioning, builds, and deployments.}
-\resumeItemListEnd
+  \resumeItemListEnd
+  \vspace{4pt}
 
-\vspace{-4pt}
+  % \resumeProjectHeading
+  % {\textbf{CodeBrewery} $|$ \footnotesize\emph{Go, Docker, Kubernetes, GitHub Actions, TypeScript} \href{https://codebrewery.vercel.app}{[\underline{Link}]}}{\faIcon{github}\href{https://github.com/slashexx/CodeBrewery}{ \underline{Code}}}
+  % \resumeItemListStart
+  %   \resumeItem{Developed an \textbf{online IDE} with a \textbf{Go-based microservices backend}, enabling multi-language code execution.}
+  %   \resumeItem{Implemented \textbf{Docker} containerization and \textbf{Kubernetes} orchestration with CI/CD automation on \textbf{GitHub Actions}.}
+  % \resumeItemListEnd
 
-\resumeProjectHeading
-{\textbf{CodeBrewery} $|$ \footnotesize\emph{Go, Docker, Kubernetes, GitHub Actions, TypeScript} \href{https://codebrewery.vercel.app}{[\underline{Link}]}}{\faIcon{github}\href{https://github.com/slashexx/CodeBrewery}{ \underline{Code}}}
+  % \resumeProjectHeading
+  % {\textbf{Lumine} $|$ \footnotesize\emph{Go, TypeScript, AWS, GitHub Actions, Terraform, Prometheus}}{\faIcon{github}\href{https://github.com/Nexusrex18/lumine}{ \underline{Lumine}}}
+  % \resumeItemListStart
+  %   \resumeItem{Developed an \textbf{interactive CLI tool} to automate DevOps workflows, allowing startups and developers to set up basic \textbf{CI/CD, infrastructure, and monitoring}.}
+  %   \resumeItem{Integrated \textbf{AWS services (ECR, ECS, S3, EKS)} using \textbf{Terraform}, enabling automated infrastructure provisioning and deployment to Dockerhub.}
+  %   % \resumeItem{Set up a basic \textbf{monitoring} template generation using \textbf{Prometheus}, providing real-time infrastructure tracking and alerting.}
+  %   \resumeItem{Implemented \textbf{CI/CD pipeline automation} with \textbf{GitHub Actions} and \textbf{Jenkins}, streamlining build, test, and deployment workflows.\href{https://lumineops.vercel.app}{[\underline{Link}]}}
+  %   % \resumeItem{Designed a \textbf{cost estimation} feature leveraging AWS pricing APIs to help users predict infrastructure expenses.}
+  %   % \resumeItem{Built an \textbf{interactive CLI} that generates Terraform configurations and GitHub Actions workflows based on user input.}
+  % \resumeItemListEnd
+  % \vspace{-4pt}
 
-\resumeItemListStart
-    \resumeItem{Developed an \textbf{online IDE} with a \textbf{Go-based microservices backend}, enabling multi-language code execution.}
-    \resumeItem{Implemented \textbf{Docker} containerization and \textbf{Kubernetes} orchestration with CI/CD automation on \textbf{GitHub Actions}.}
-\resumeItemListEnd
-
-
-% \resumeProjectHeading
-% {\textbf{Lumine} $|$ \footnotesize\emph{Go, TypeScript, AWS, GitHub Actions, Terraform, Prometheus}}{\faIcon{github}\href{https://github.com/Nexusrex18/lumine}{ \underline{Lumine}}}
-
-% \resumeItemListStart
-%     \resumeItem{Developed an \textbf{interactive CLI tool} to automate DevOps workflows, allowing startups and developers to set up basic \textbf{CI/CD, infrastructure, and monitoring}.}
-%     \resumeItem{Integrated \textbf{AWS services (ECR, ECS, S3, EKS)} using \textbf{Terraform}, enabling automated infrastructure provisioning and deployment to Dockerhub.}
-%     % \resumeItem{Set up a basic \textbf{monitoring} template generation using \textbf{Prometheus}, providing real-time infrastructure tracking and alerting.}
-%     \resumeItem{Implemented \textbf{CI/CD pipeline automation} with \textbf{GitHub Actions} and \textbf{Jenkins}, streamlining build, test, and deployment workflows.\href{https://lumineops.vercel.app}{[\underline{Link}]}}
-%     % \resumeItem{Designed a \textbf{cost estimation} feature leveraging AWS pricing APIs to help users predict infrastructure expenses.}
-%     % \resumeItem{Built an \textbf{interactive CLI} that generates Terraform configurations and GitHub Actions workflows based on user input.}
-% \resumeItemListEnd
-
-
-% \vspace{-4pt}
-
-% \resumeProjectHeading
-% {\textbf{CodeBrewery} $|$ \footnotesize\emph{Golang, Docker, Kubernetes, GitHub Actions, TypeScript}}{\faIcon{github}\href{https://github.com/slashexx/CodeBrewery}{ \underline{CodeBrewery}}}
-
-% \resumeItemListStart
-%     \resumeItem{Developed a cutting-edge online IDE allowing users to \textbf{write, compile, and run} code across multiple languages, leveraging a \textbf{microservices architecture} with \textbf{Go} for the backend.}
-%     \resumeItem{Employed \textbf{Docker} for \textbf{containerization} and \textbf{Kubernetes} for orchestration, ensuring seamless deployment and scalability. \href{https://codebrewery.vercel.app}{[\underline{Link}]}}
+  % \resumeProjectHeading
+  % {\textbf{CodeBrewery} $|$ \footnotesize\emph{Golang, Docker, Kubernetes, GitHub Actions, TypeScript}}{\faIcon{github}\href{https://github.com/slashexx/CodeBrewery}{ \underline{CodeBrewery}}}
+  % \resumeItemListStart
+  %   \resumeItem{Developed a cutting-edge online IDE allowing users to \textbf{write, compile, and run} code across multiple languages, leveraging a \textbf{microservices architecture} with \textbf{Go} for the backend.}
+  %   \resumeItem{Employed \textbf{Docker} for \textbf{containerization} and \textbf{Kubernetes} for orchestration, ensuring seamless deployment and scalability. \href{https://codebrewery.vercel.app}{[\underline{Link}]}}
     % \resumeItem{Set up \textbf{CI/CD} pipelines with \textbf{GitHub Actions} and \textbf{YAML} to automate testing and deployment, improving development efficiency.}
     % \resumeItem{Implemented thorough testing for backend services in \textbf{Go} and frontend components in \textbf{Jest} to maintain code quality.}
     % \resumeItem{Configured \textbf{Docker Compose} for local development, streamlining project setup.}
-% \resumeItemListEnd
+  % \resumeItemListEnd
 
-% \resumeProjectHeading
-% {\textbf{KisanSetu} $|$ \footnotesize\emph{Node.js, Express, WebSocket, Solidity, Docker, Firebase}}{\faIcon{github}\href{https://github.com/slashexx/kisansetu}{\underline{Kisansetu}}}
-
-% \resumeItemListStart
-%     \resumeItem{Developed a blockchain platform for secure contract farming agreements between farmers and buyers.}
-%     \resumeItem{Integrated \textbf{smart contracts} in \textbf{Solidity} for transparent and reliable transactions.}
-%     \resumeItem{Implemented features like \textbf{real-time price negotiation}, \textbf{direct communication}, and \textbf{automated payments}.}
-%     \resumeItem{Deployed the application with \textbf{Docker} and used \textbf{Firebase} for authentication and data management. \href{kisansetu.onrender.com}{\textcolor{blue}{[Link]}}}
-% \resumeItemListEnd
-
-    \resumeSubHeadingListEnd
+  % \resumeProjectHeading
+  % {\textbf{KisanSetu} $|$ \footnotesize\emph{Node.js, Express, WebSocket, Solidity, Docker, Firebase}}{\faIcon{github}\href{https://github.com/slashexx/kisansetu}{\underline{Kisansetu}}}
+  % \resumeItemListStart
+  %   \resumeItem{Developed a blockchain platform for secure contract farming agreements between farmers and buyers.}
+  %   \resumeItem{Integrated \textbf{smart contracts} in \textbf{Solidity} for transparent and reliable transactions.}
+  %   \resumeItem{Implemented features like \textbf{real-time price negotiation}, \textbf{direct communication}, and \textbf{automated payments}.}
+  %   \resumeItem{Deployed the application with \textbf{Docker} and used \textbf{Firebase} for authentication and data management. \href{kisansetu.onrender.com}{\textcolor{blue}{[Link]}}}
+  % \resumeItemListEnd
+\resumeSubHeadingListEnd
 \vspace{-14.5pt}
 
- % ------------------Open source----------
+% ------------------Open source----------
 % \section{Open Source Contributions}  
 % \resumeSubHeadingListStart  
+%   \resumeProjectHeading  
+%     {\textbf{Prometheus Operator (CNCF)} $|$ \footnotesize\emph{Golang, GitHub Actions, CI/CD, actionlint}}{Nov. 2024}  
+%   \resumeItemListStart  
+%     \resumeItem{Added support for \textbf{RocketChat} as a notification reciever in AlertManagerConfig CRD. \href{https://github.com/prometheus-operator/prometheus-operator/pull/7328}{{[\underline{PR}]}}} 
+%     \resumeItem{Refactored the \textbf{OVHCloudSDConfig} validation logic as part of ScrapeConfig API refactor, ensuring compliance with Prometheus version requirements and improving test coverage for unsupported field handling. \href{https://github.com/prometheus-operator/prometheus-operator/pull/7238}{{[\underline{PR}]}}}  
+%     \resumeItem{Enhanced CI/CD reliability by implementing a \textbf{GitHub Actions workflow linter} using \textbf{actionlint}, ensuring accurate and consistent YAML configurations.\href{https://github.com/prometheus-operator/prometheus-operator/pull/7123}{{[\underline{PR}]}}}  
+%   \resumeItemListEnd  
 
-% \resumeProjectHeading  
-% {\textbf{Prometheus Operator (CNCF)} $|$ \footnotesize\emph{Golang, GitHub Actions, CI/CD, actionlint}}{Nov. 2024}  
-% \resumeItemListStart  
-% \resumeItem{Added support for \textbf{RocketChat} as a notification reciever in AlertManagerConfig CRD. \href{https://github.com/prometheus-operator/prometheus-operator/pull/7328}{{[\underline{PR}]}}} 
-% \resumeItem{Refactored the \textbf{OVHCloudSDConfig} validation logic as part of ScrapeConfig API refactor, ensuring compliance with Prometheus version requirements and improving test coverage for unsupported field handling. \href{https://github.com/prometheus-operator/prometheus-operator/pull/7238}{{[\underline{PR}]}}}  
-% \resumeItem{Enhanced CI/CD reliability by implementing a \textbf{GitHub Actions workflow linter} using \textbf{actionlint}, ensuring accurate and consistent YAML configurations.\href{https://github.com/prometheus-operator/prometheus-operator/pull/7123}{{[\underline{PR}]}}}  
-% \resumeItemListEnd  
-
-% % \resumeProjectHeading  
-% % {\textbf{KCL Programming Language (CNCF)} $|$ \footnotesize\emph{Rust, Crypto}}{Oct. 2024}  
-% % \resumeItemListStart  
-% % \resumeItem{Added support for \textbf{filesha512} and \textbf{fileblake3} hashing functions by contributing to the crypto module of the KCL programming language, significantly enhancing its \textbf{cryptographic capabilities}.}  
-% % \resumeItem{Implemented efficient file hashing operations with robust error handling, improving reliability and performance across diverse file types.}  
-% % \resumeItemListEnd  
-
-
+%   % \resumeProjectHeading  
+%   % {\textbf{KCL Programming Language (CNCF)} $|$ \footnotesize\emph{Rust, Crypto}}{Oct. 2024}  
+%   % \resumeItemListStart  
+%   %   \resumeItem{Added support for \textbf{filesha512} and \textbf{fileblake3} hashing functions by contributing to the crypto module of the KCL programming language, significantly enhancing its \textbf{cryptographic capabilities}.}  
+%   %   \resumeItem{Implemented efficient file hashing operations with robust error handling, improving reliability and performance across diverse file types.}  
+%   % \resumeItemListEnd  
 % \resumeSubHeadingListEnd
-
 % \vspace{-11pt}  
 
 % -------------------- EXTRA-CURRICULAR --------------------
 \section{Extracurricular} \vspace{0.5pt}
 \begin{itemize}[leftmargin=0.15in, label={}, itemsep=0.08em, topsep=1pt]
-    \item \textbf{Winner, Grand prize:} Placed \textbf{1st} among 1965 participants at NITK Hackverse 5.0 hackathon.
-    % \item \textbf{Winner:} at Clone Wars.
-    \item \textbf{2nd Runner Up:} Placed \textbf{3rd} amongst 1200 participants at Sandbox, the cybersecurity hackathon. 
-    \item \textbf{Selected:} Among \textbf{40 students} nationwide for the \textbf{ACM  Summer School} at \textbf{IIT Bombay}.
-    \item \textbf{2nd Runner Up:} HackSprint, part of Ignite 2.0
-    % \item \textbf{2nd Runner Up:} Capture the Flag Competition hosted by Point Blank 
-    % \item \textbf{2* at Codechef:} Rating: 1414
+  \item \textbf{Finalist, Smart India Hackathon 2025:} After being selected amongst 8.2L participants
+  \item \textbf{Winner, Grand prize:} Placed \textbf{1st} among 1965 participants at NITK Hackverse 5.0 hackathon.
+  % \item \textbf{Winner:} at Clone Wars.
+  \item \textbf{2nd Runner Up:} Placed \textbf{3rd} amongst 1200 participants at Sandbox, the cybersecurity hackathon. 
+  \item \textbf{Selected:} Among \textbf{40 students} nationwide for the \textbf{ACM  Summer School} at \textbf{IIT Bombay}.
+  % \item \textbf{2nd Runner Up:} HackSprint, part of Ignite 2.0
+  % \item \textbf{2nd Runner Up:} Capture the Flag Competition hosted by Point Blank 
+  % \item \textbf{2* at Codechef:} Rating: 1414
 \end{itemize}
 
 \end{document}
