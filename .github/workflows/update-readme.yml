@@ -74,10 +74,10 @@ jobs:
     - name: Commit and push changes
       if: env.readme_changed == 'true'
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "dhruvpuri.35@gmail.com"
+        git config --local user.name "slashexx"
         git add README.md
-        git commit -m "🤖 Auto-update README with latest resume: ${{ steps.find-resume.outputs.latest_resume }}"
+        git commit -m "✨ Auto-update README with latest resume: ${{ steps.find-resume.outputs.latest_resume }}"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
