@@ -146,20 +146,23 @@
   \resumeSubheading
     {\href{https://aspora.com}{\underline{Aspora (YC W22)}}}{Nov 2025 – Present}
     {DevOps Engineer: Terragrunt, Terraform, AWS}{Onsite · Bangalore}
-  \resumeItemListStart
-    \resumeItem{Revamped the \textbf{environment lifecycle} by introducing a structured \textbf{Dev to Stage to Prod} workflow, replacing direct dev-to-production deployments.}
-    \resumeItem{Optimizing \textbf{CloudWatch alarms} and operational thresholds to improve monitoring reliability and reduce false alerts.}
-    \resumeItem{Managing \textbf{AWS IAM, RDS access}, and service-level integrations including \textbf{ECS} and \textbf{SQS} setup.}
-  \resumeItemListEnd
+ \resumeItemListStart
+  \resumeItem{Provisioned a dedicated \textbf{QA AWS account} using \textbf{Terraform and Terragrunt}, enabling isolated, production-like testing environments.}
+  \resumeItem{Designed \textbf{cross-account VPC peering} between QA, Dev, and Atlantis accounts to securely share \textbf{S3 buckets and databases}.}
+  \resumeItem{Architected \textbf{multi-environment AWS infrastructure (QA, Stage, Prod)} and enforced a structured \textbf{Dev $\rightarrow$ Stage $\rightarrow$ Prod} release lifecycle.}
+\resumeItemListEnd
+
 
   \resumeSubheading
     {\href{https://lfx.linuxfoundation.org/tools/mentorship}{\underline{Linux Foundation Mentorship - Kyverno}} \href{https://mentorship.lfx.linuxfoundation.org/project/6ad81eb7-295b-4ec8-b9b4-db20e1f3a346}{\faIcon{link}}}{Aug 2025 – Present}
     {LFX Mentee at CNCF: Kyverno : Go, Kubernetes, CEL, Policy-as-Code}{Remote · San Jose, USA}
-  \resumeItemListStart
-    \resumeItem{Contributing to \textbf{CNCF: Kyverno}, a Kubernetes-native policy engine.}
-    \resumeItem{Developed CEL-based policy resources - \textbf{ValidatingPolicy, ImageValidatingPolicy}, and \textbf{DeletingPolicy} - enabling namespace-specific policy enforcement in Kyverno.}
-    \resumeItem{Integrated \textbf{RBAC controls} for namespace-scoped policy management and contributed tests, documentation, and usage examples.}
-  \resumeItemListEnd
+\resumeItemListStart
+  \resumeItem{Implemented \textbf{namespaced variants of Kyverno's CEL-based policy types}, enabling namespace owners to define and manage policies without requiring cluster-wide privileges.}
+  \resumeItem{Designed and developed namespace-scoped \textbf{ValidatingPolicy, ImageValidatingPolicy, MutatingPolicy, GeneratingPolicy, and DeletingPolicy} resources, extending Kyverno's policy model beyond cluster-level enforcement.}
+  \resumeItem{Integrated \textbf{RBAC-aware policy evaluation} to ensure correct authorization, isolation, and lifecycle management for namespace-scoped policies.}
+  % \resumeItem{Added comprehensive \textbf{unit and integration tests} to validate policy behavior, authorization boundaries, and cross-namespace isolation.}
+  % \resumeItem{Authored \textbf{documentation and usage examples} to support adoption of namespaced CEL policies by platform teams and cluster operators.}
+\resumeItemListEnd
 
   \resumeSubheading
     {\href{https://summerofcode.withgoogle.com}{\underline{Google Summer of Code - Prometheus Operator}} \href{https://summerofcode.withgoogle.com/programs/2025/projects/hZAZORpk}{\faIcon{link}}}{May 2025 – Sep 2025}
@@ -197,9 +200,8 @@
   \resumeProjectHeading
     {\textbf{Lumine} $|$ \footnotesize\emph{Go, TypeScript, AWS, Terraform, GitHub Actions, Prometheus} \href{https://lumineops.vercel.app}{[\underline{Link}]}}{\faIcon{github}\href{https://github.com/Nexusrex18/lumine}{ \underline{Code}}}
   \resumeItemListStart
-    \resumeItem{Built an \textbf{interactive CLI tool} to bootstrap \textbf{CI/CD, infrastructure, and monitoring} workflows for developers and startups.}
-    \resumeItem{Integrated \textbf{AWS services} with \textbf{Terraform} and automated pipelines using \textbf{GitHub Actions \& Jenkins} for provisioning, builds, and deployments.}
-  \resumeItemListEnd
+  \resumeItem{Built an interactive \textbf{CLI tool} to bootstrap \textbf{CI/CD, infrastructure, and monitoring} using Go, Terraform, and GitHub Actions.}
+\resumeItemListEnd
   \vspace{4pt}
 
   % \resumeProjectHeading
@@ -268,7 +270,7 @@
   \item \textbf{Finalist, Smart India Hackathon 2025:} After being selected amongst 8.2L participants
   \item \textbf{Winner, Grand prize:} Placed \textbf{1st} among 1965 participants at NITK Hackverse 5.0 hackathon.
   % \item \textbf{Winner:} at Clone Wars.
-  \item \textbf{2nd Runner Up:} Placed \textbf{3rd} amongst 1200 participants at Sandbox, the cybersecurity hackathon. 
+  % \item \textbf{2nd Runner Up:} Placed \textbf{3rd} amongst 1200 participants at Sandbox, the cybersecurity hackathon. 
   \item \textbf{Selected:} Among \textbf{40 students} nationwide for the \textbf{ACM  Summer School} at \textbf{IIT Bombay}.
   % \item \textbf{2nd Runner Up:} HackSprint, part of Ignite 2.0
   % \item \textbf{2nd Runner Up:} Capture the Flag Competition hosted by Point Blank 
