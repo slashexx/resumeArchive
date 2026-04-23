@@ -23,8 +23,9 @@ jobs:
     - name: Find latest resume
       id: find-resume
       run: |
-        # Find all resume PDFs and sort by filename (which contains date)
-        latest_resume=$(ls -1 Dhruv_s_resume*.pdf 2>/dev/null | sort -V | tail -1)
+        # Find all one-page resume PDFs (Dhruv_s_resume___*.pdf) and sort by filename (which contains date).
+        # The Elaborated_* variant is excluded by the prefix match.
+        latest_resume=$(ls -1 Dhruv_s_resume___*.pdf 2>/dev/null | sort -V | tail -1)
         
         if [ -z "$latest_resume" ]; then
           echo "No resume files found!"

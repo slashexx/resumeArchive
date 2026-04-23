@@ -5,6 +5,7 @@ on:
     branches: [ main, master ]
     paths:
       - 'main.tex'
+      - 'elaborated.tex'
   workflow_dispatch:
 
 jobs:
@@ -12,92 +13,113 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    
+
     - name: Install LaTeX
       run: |
         sudo apt update
         sudo apt install -y texlive-latex-base texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra
-    
-    - name: Compile LaTeX to PDF
+
+    - name: Compile main.tex
       run: |
         pdflatex -interaction=nonstopmode main.tex
         if [ ! -f main.pdf ]; then
-          echo "LaTeX compilation failed."
+          echo "❌ main.tex compilation failed."
           exit 1
         fi
-        echo "✅ PDF compilation successful!"
+        echo "✅ main.pdf compilation successful!"
         ls -la main.pdf
-    
-    - name: Generate PDF filename with current date
+
+    - name: Compile elaborated.tex
+      id: compile-elaborated
+      run: |
+        if [ ! -f elaborated.tex ]; then
+          echo "elaborated.tex not present, skipping."
+          echo "built=false" >> $GITHUB_OUTPUT
+          exit 0
+        fi
+        # Run twice so cross-references and TOC-like structures resolve
+        pdflatex -interaction=nonstopmode elaborated.tex
+        pdflatex -interaction=nonstopmode elaborated.tex
+        if [ ! -f elaborated.pdf ]; then
+          echo "❌ elaborated.tex compilation failed."
+          exit 1
+        fi
+        echo "✅ elaborated.pdf compilation successful!"
+        ls -la elaborated.pdf
+        echo "built=true" >> $GITHUB_OUTPUT
+
+    - name: Generate PDF filenames with current date
       id: generate-filename
       run: |
-        # Get current date in YY_MM_DD format
         current_date=$(date +%y_%m_%d)
-        filename="Dhruv_s_resume___${current_date}.pdf"
-        
-        echo "Generated filename: $filename"
-        echo "pdf_filename=$filename" >> $GITHUB_OUTPUT
+        main_filename="Dhruv_s_resume___${current_date}.pdf"
+        elaborated_filename="Elaborated_Dhruv_s_resume___${current_date}.pdf"
+
+        echo "main_filename=$main_filename" >> $GITHUB_OUTPUT
+        echo "elaborated_filename=$elaborated_filename" >> $GITHUB_OUTPUT
         echo "current_date=$current_date" >> $GITHUB_OUTPUT
-    
-    - name: Rename PDF and prepare for commit
+
+    - name: Rename PDFs and prepare for commit
       run: |
-        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
-        
-        # Copy to new filename (keeping original for reference)
-        cp main.pdf "$pdf_filename"
-        
-        echo "PDF copied to: $pdf_filename"
+        main_filename="${{ steps.generate-filename.outputs.main_filename }}"
+        elaborated_filename="${{ steps.generate-filename.outputs.elaborated_filename }}"
+
+        cp main.pdf "$main_filename"
+        if [ -f elaborated.pdf ]; then
+          cp elaborated.pdf "$elaborated_filename"
+        fi
+
         ls -la *.pdf
-        
-        # Configure git
         git config --global user.name "slashexx"
         git config --global user.email "dhruvpuri.35@gmail.com"
-    
-    - name: Check if PDF already exists and commit
+
+    - name: Stage PDFs and commit
       run: |
-        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
+        main_filename="${{ steps.generate-filename.outputs.main_filename }}"
+        elaborated_filename="${{ steps.generate-filename.outputs.elaborated_filename }}"
         current_date="${{ steps.generate-filename.outputs.current_date }}"
-        
-        # Check if file exists and remove old version if it does
-        if [ -f "$pdf_filename" ] && git ls-files --error-unmatch "$pdf_filename" > /dev/null 2>&1; then
-          echo "Removing existing PDF for today..."
-          git rm "$pdf_filename"
-          commit_message="🤖 Update resume PDF: $pdf_filename"
-        else
-          commit_message="🤖 Generate new resume PDF: $pdf_filename"
-        fi
-        
-        # Add the new PDF
-        git add "$pdf_filename"
-        
-        # Check if there are changes to commit
+
+        # Remove any previously-tracked same-day files so today's regeneration replaces them cleanly
+        for f in "$main_filename" "$elaborated_filename"; do
+          if [ -f "$f" ] && git ls-files --error-unmatch "$f" > /dev/null 2>&1; then
+            echo "Replacing existing $f"
+            git rm --cached "$f" || true
+          fi
+        done
+
+        git add "$main_filename"
+        [ -f "$elaborated_filename" ] && git add "$elaborated_filename"
+
         if git diff --staged --quiet; then
-          echo "No changes to commit (PDF might be identical)"
+          echo "No changes to commit (PDFs identical)."
         else
-          git commit -m "$commit_message"
+          git commit -m "🤖 Update resume PDFs for ${current_date}"
           git push origin main
-          echo "✅ PDF committed and pushed successfully!"
+          echo "✅ PDFs committed and pushed."
         fi
-    
+
     - name: Create summary
       run: |
-        pdf_filename="${{ steps.generate-filename.outputs.pdf_filename }}"
+        main_filename="${{ steps.generate-filename.outputs.main_filename }}"
+        elaborated_filename="${{ steps.generate-filename.outputs.elaborated_filename }}"
         current_date="${{ steps.generate-filename.outputs.current_date }}"
-        
+
         echo "## 📄 LaTeX to PDF Conversion Summary" >> $GITHUB_STEP_SUMMARY
-        echo "- **Source File:** \`main.tex\`" >> $GITHUB_STEP_SUMMARY
-        echo "- **Generated PDF:** \`$pdf_filename\`" >> $GITHUB_STEP_SUMMARY
         echo "- **Date:** $current_date" >> $GITHUB_STEP_SUMMARY
-        echo "- **Status:** ✅ Successfully converted and committed" >> $GITHUB_STEP_SUMMARY
-        
-        # Get file size
-        if [ -f "$pdf_filename" ]; then
-          file_size=$(ls -lh "$pdf_filename" | awk '{print $5}')
-          echo "- **File Size:** $file_size" >> $GITHUB_STEP_SUMMARY
+        echo "- **One-page resume:** \`$main_filename\`" >> $GITHUB_STEP_SUMMARY
+        if [ -f "$elaborated_filename" ]; then
+          echo "- **Elaborated resume:** \`$elaborated_filename\`" >> $GITHUB_STEP_SUMMARY
         fi
+
+        for f in "$main_filename" "$elaborated_filename"; do
+          if [ -f "$f" ]; then
+            size=$(ls -lh "$f" | awk '{print $5}')
+            echo "  - \`$f\` — $size" >> $GITHUB_STEP_SUMMARY
+          fi
+        done

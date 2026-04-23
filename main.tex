@@ -124,10 +124,10 @@
 % -------------------- SKILLS --------------------
 \section{Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
-  \small{\item{ 
-    \textbf{Languages}{: Go, Java, Typescript, Python} \\
-    \textbf{Frameworks and Libraries}{: Node.js, Express, Next.js, Gin} \\
-    \textbf{Tools}{: Linux, Git, ArgoCD, AWS, Terragrunt, Terraform, Docker, Kubernetes, Quickwit, Github Actions, Ansible}     
+  \small{\item{
+    \textbf{Languages}{: Go, Java, TypeScript, Python, Lua, Bash, SQL} \\
+    \textbf{Cloud \& Platform}{: AWS (EKS, MSK, RDS, DynamoDB, S3, IAM), Kubernetes, ArgoCD, Terraform, Terragrunt, Ansible, Helm, Kustomize, Docker, Atlantis, KEDA, Kyverno, Kong} \\
+    \textbf{Observability \& Data}{: Prometheus, Grafana, Datadog, Loki, VictoriaMetrics, Vector, Quickwit, Beyla, Alloy, Kafka (MSK), PostgreSQL (Aurora), RudderStack}
   }}
 \end{itemize}
 \vspace{-17pt}
@@ -153,25 +153,28 @@
     {DevOps Engineer: Kubernetes, Terragrunt, Vector, Quickwit, Kyverno, KEDA, AWS EKS}{Onsite · Bangalore}
  \resumeItemListStart
   \resumeItem{Architected production \textbf{EKS cluster} with \textbf{GitOps workflow} using \textbf{ArgoCD} and managing observability \textbf{(VictoriaMetrics, Beyla, Vector, Quickwit, YACE, Grafana, Datadog)}, security \textbf{(Kyverno)}, and pod autoscaling \textbf{(KEDA)}.}
-  \resumeItem{Deployed \textbf{Kong Gateway} with custom Lua JWT plugin for production API traffic, implementing inline token verification, scope-based authorization, and rate limiting - eliminating external auth calls and reducing latency.}
-   \resumeItem{Migrated monitoring architecture across all environments and onboarded all microservices to \textbf{Datadog}}
+  \resumeItem{Deployed and operated \textbf{Kong Gateway} with a custom \textbf{Lua JWT plugin} (inline token verification, scope-based authorization, rate limiting), and drove the \textbf{JWT authentication rollout across stage and production}, making it the default on \textbf{every API route} and eliminating external auth round-trips from the request path.}
+   \resumeItem{Migrated the full observability stack from \textbf{OpenTelemetry to Datadog} across every environment (\textbf{core-\{stage,prod\}}, \textbf{falcon-\{stage,prod\}}), onboarding all microservices with standardized service tagging, log pipelines, and SLO-ready dashboards.}
+   \resumeItem{Shipped a production-isolated \textbf{staging analytics pipeline} (\textbf{RudderStack}, \textbf{Kafka MSK}, \textbf{Aurora PostgreSQL}) on \textbf{EKS} with \textbf{ArgoCD}-managed Helm/Kustomize and \textbf{Kong Gateway}.}
+   \resumeItem{Bootstrapped a production-mirror \textbf{QA environment} from scratch: IaC-provisioned AWS account (IAM, VPN, Kong), 7 core services on EKS/ECS, and enforced a new QA release-branching strategy across repos.}
+   \resumeItem{Owned end-to-end infrastructure for the \textbf{Shivalik/Envoy} client vertical: EKS cluster, Kong routing, Grafana logging, MSK + prod alerting, and authored the on-call architecture reference.}
 \resumeItemListEnd
 
   \resumeSubheading
     {\href{https://lfx.linuxfoundation.org/tools/mentorship}{\underline{Linux Foundation Mentorship - Kyverno}} \href{https://mentorship.lfx.linuxfoundation.org/project/6ad81eb7-295b-4ec8-b9b4-db20e1f3a346}{\faIcon{link}}}{Aug 2025 – Dec 2025}
     {LFX Mentee at CNCF: Kyverno : Go, Kubernetes, Policy-as-Code, Kyverno}{Remote · San Jose, USA}
 \resumeItemListStart
-  \resumeItem{Implemented \textbf{namespaced variants of Kyverno's CEL-based policy types}, enabling namespace owners to define and manage policies without requiring cluster-wide privileges.}
-  \resumeItem{Designed and developed namespace-scoped \textbf{ValidatingPolicy, ImageValidatingPolicy, MutatingPolicy, GeneratingPolicy, and DeletingPolicy} resources, extending Kyverno's policy model beyond cluster-level enforcement.}
+  \resumeItem{Extended Kyverno's \textbf{CEL-based policy engine} with namespace-scoped variants of all five policy kinds, enabling namespace owners to govern policies without cluster-admin privileges and shrinking the privilege-escalation surface for multi-tenant clusters.}
+  \resumeItem{Delivered \textbf{NamespacedValidatingPolicy}, \textbf{NamespacedImageValidatingPolicy}, \textbf{NamespacedMutatingPolicy}, \textbf{NamespacedGeneratingPolicy}, and \textbf{NamespaceDeletingPolicy} end-to-end: API types, controllers, admission webhooks, CRD generation, and Chainsaw e2e coverage in CI.}
 \resumeItemListEnd
 
   \resumeSubheading
     {\href{https://summerofcode.withgoogle.com}{\underline{Google Summer of Code - Prometheus Operator}} \href{https://summerofcode.withgoogle.com/programs/2025/projects/hZAZORpk}{\faIcon{link}}}{May 2025 – Sep 2025}
     {Contributor at Prometheus Operator : Go, PrometheusAgent, DaemonSets, CEL}{Remote · Raleigh, USA}
   \resumeItemListStart
-    \resumeItem{Stabilizing and enhancing the \textbf{DaemonSet mode} for the \textbf{Prometheus Agent} in \textbf{Prometheus Operator}.}
-    \resumeItem{Added robust \textbf{CEL-based validation rules} for Custom Resource Definitions (CRDs) with comprehensive runtime fallback mechanisms and extensive test coverage for DaemonSet configurations.}
-    \resumeItem{Expanded \textbf{AlertManager} by implementing \textbf{RocketChat integration} in the \textbf{AlertManagerConfig CRD}.}
+    \resumeItem{Stabilized and productionized the \textbf{DaemonSet deployment mode} for \textbf{PrometheusAgent} in \textbf{Prometheus Operator}, unlocking per-node scrape topology for high-cardinality multi-tenant setups.}
+    \resumeItem{Authored robust \textbf{CEL-based validation rules} on the PrometheusAgent CRD (invalid replicas/storage, shards/PVCRetention, ScrapeConfigSelector and probeSelector prohibitions) with runtime fallbacks and full e2e test coverage.}
+    \resumeItem{Expanded \textbf{AlertManager} by implementing a \textbf{RocketChat receiver} in the \textbf{AlertManagerConfig CRD}, enabling native RocketChat alerting for chat-based incident response.}
   \resumeItemListEnd
 
   \resumeSubheading

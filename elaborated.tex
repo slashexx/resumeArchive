@@ -1,0 +1,267 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{lmodern}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.8in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Subsection formatting
+\titleformat{\subsection}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{\hspace{-.15in}}{0em}{}[\color{black}\vspace{-6pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+% -------------------- CUSTOM COMMANDS --------------------
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-3pt}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\setlength{\footskip}{4.08003pt}
+
+% -------------------- START OF DOCUMENT --------------------
+\begin{document}
+
+% -------------------- HEADING --------------------
+\begin{center}
+  \textbf{\Huge \scshape Dhruv Puri} \\ \vspace{4pt}
+  \small
+  \faIcon{briefcase}
+  \href{https://slashex.xyz/}
+  {\underline{slashex.xyz}} \
+  \faIcon{phone}
+  \href{tel:+919149407326}
+  {\underline{+91 9149407326}} \
+  \faIcon{github}
+  \href{https://github.com/slashexx}{\underline{github.com/slashexx}} \
+  \faIcon{linkedin}
+  \href{https://linkedin.com/in/dhruvpuri-slashex}{\underline{in/dhruvpuri-slashex}} \
+  \faIcon{envelope}
+  \href{mailto:dhruvpuri.35@gmail.com}
+  {\underline{dhruvpuri.35@gmail.com}}
+\end{center}
+
+% -------------------- PROFILE --------------------
+\section{Profile}
+\small
+DevOps/Platform engineer with production experience across Kubernetes, GitOps, and cloud-native observability. Shipped end-to-end infrastructure at Aspora (YC W22) spanning EKS, Kong, MSK, RudderStack, ArgoCD, and Datadog. Google Summer of Code 2025 contributor to \textbf{Prometheus Operator} and LFX mentee to \textbf{CNCF Kyverno}, with \textbf{30+ merged pull requests} across both upstream projects extending CEL-based policy validation and namespace-scoped policy enforcement. Accepted speaker at \textbf{KubeCon + CloudNativeCon India 2026}.
+\vspace{-4pt}
+
+% -------------------- EDUCATION --------------------
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {Dayananda Sagar College of Engineering}{Sept. 2023 -- 2027}
+    {B.E. Information Science and Engineering}{CGPA: 9.33 / 10}
+  \resumeItemListStart
+    \resumeItem{\textbf{Relevant Coursework:} Operating Systems, Computer Networks, Distributed Systems, Database Management Systems, Data Structures and Algorithms, Object-Oriented Programming, Cloud Computing, Software Engineering.}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-8pt}
+
+% -------------------- EXPERIENCE --------------------
+\section{Experience}
+\resumeSubHeadingListStart
+
+% -------- Murena --------
+\resumeSubheading
+  {\href{https://murena.io}{\underline{Murena}}}{Feb 2026 -- Present}
+  {DevOps Engineer \textbar{} Ansible, Terraform, Docker, Prometheus, Grafana, Traefik, Hetzner}{Remote \textperiodcentered{} Paris, France}
+\resumeItemListStart
+  \resumeItem{Built a \textbf{centralized monitoring platform} on Hetzner Cloud integrating \textbf{Prometheus}, \textbf{Loki}, and \textbf{Grafana Alloy}, provisioned end-to-end with \textbf{Terraform} and configured via \textbf{Ansible} playbooks for reproducible rollouts across staging and production estates.}
+  \resumeItem{Fronted the observability stack with a \textbf{Traefik} reverse proxy terminating TLS via \textbf{Let's Encrypt} auto-renewal, and automated \textbf{Grafana datasource provisioning} through the Grafana REST API so new tenants land with ready-to-use dashboards.}
+  \resumeItem{Deployed \textbf{OnlyOffice's} custom document-server image as an isolated deployment with Ansible-driven configuration and Traefik route protection, enforcing least-privilege access to document editing endpoints.}
+  \resumeItem{Extended the shared \textbf{workspace-deployment} repository with \textbf{S3 server-side encryption with customer-provided keys (SSE-C)} support (environment template, validation logic, secret plumbing, and operator documentation), enabling customer data sovereignty across deployments.}
+\resumeItemListEnd
+
+% -------- Aspora --------
+\resumeSubheading
+  {\href{https://aspora.com}{\underline{Aspora (YC W22)}}}{Nov 2025 -- Present}
+  {DevOps Engineer \textbar{} Kubernetes, Terragrunt, Vector, Quickwit, Kyverno, KEDA, AWS EKS}{Onsite \textperiodcentered{} Bangalore}
+\resumeItemListStart
+  \resumeItem{Architected a production \textbf{EKS cluster} following a \textbf{GitOps workflow} on \textbf{ArgoCD}, managing the full cloud-native stack: observability (\textbf{VictoriaMetrics}, \textbf{Beyla}, \textbf{Vector}, \textbf{Quickwit}, \textbf{YACE}, \textbf{Grafana}, \textbf{Datadog}), security (\textbf{Kyverno}), and workload autoscaling (\textbf{KEDA}).}
+  \resumeItem{Deployed and operated \textbf{Kong Gateway} with a custom \textbf{Lua JWT plugin} performing \textbf{inline token verification}, \textbf{scope-based authorization}, and \textbf{rate limiting} at the edge, eliminating external auth round-trips and materially reducing request-path latency.}
+  \resumeItem{Drove the \textbf{Kong JWT authentication migration across stage and production}, making JWT the default on \textbf{every API route} and retiring legacy key-auth / external-service authorization from the hot path across all microservices.}
+  \resumeItem{Migrated the full observability stack from \textbf{OpenTelemetry to Datadog} across stage and production (\textbf{core-\{stage,prod\}}, \textbf{falcon-\{stage,prod\}}), onboarding all microservices with standardized service tagging, log pipelines, and SLO-ready dashboards.}
+  \resumeItem{Shipped a \textbf{production-isolated staging analytics pipeline} (\textbf{RudderStack} self-hosted, \textbf{Kafka MSK}, \textbf{Aurora PostgreSQL}) on \textbf{EKS}, delivered as \textbf{ArgoCD}-managed Helm/Kustomize releases with \textbf{Kong Gateway} fronting ingress.}
+  \resumeItemListStart
+    \resumeItem{Designed end-to-end isolation: dedicated MSK topic set, separate \textbf{DynamoDB} destination-config table, S3 sink with prefix-namespaced staging bucket, and \textbf{EKS Pod Identity}-scoped IAM roles, guaranteeing zero cross-environment blast radius.}
+    \resumeItem{Implemented \textbf{Kong path-rewrite routing} (\texttt{strip\_path} + upstream \texttt{service.path}) on a single clean route so staging traffic at \texttt{/eventbus-stage} is safely rewritten to the production-compatible \texttt{/eventbus} upstream contract.}
+    \resumeItem{Rolled out under an \textbf{Atlantis}-managed Terragrunt workflow spanning 19 environments and 500+ Atlantis projects, with plan-only previews, CODEOWNERS review, and drift detection on every PR.}
+  \resumeItemListEnd
+  \resumeItem{Instrumented the RudderStack control-plane shim and eventbus with \textbf{Four Golden Signals} dashboards (latency, traffic, errors, saturation) and wired anomaly-based alerting into Datadog for on-call triage.}
+  \resumeItem{Bootstrapped a \textbf{production-mirror QA environment} end-to-end: IaC-provisioned a new AWS account (IAM roles, VPN access, Kong routes), deployed \textbf{7 core services} on EKS/ECS, and rolled out a new QA release-branching strategy across the engineering org to unblock mobile automation and regression testing.}
+  \resumeItem{Owned end-to-end infrastructure for the \textbf{Shivalik/Envoy} client vertical: EKS cluster setup, Kong routing, Grafana logging, MSK + production alerting, and authored the on-call architecture reference guide for the vertical.}
+\resumeItemListEnd
+
+% -------- Linux Foundation Kyverno --------
+\resumeSubheading
+  {\href{https://lfx.linuxfoundation.org/tools/mentorship}{\underline{Linux Foundation Mentorship: CNCF Kyverno}} \href{https://mentorship.lfx.linuxfoundation.org/project/6ad81eb7-295b-4ec8-b9b4-db20e1f3a346}{\faIcon{link}}}{Aug 2025 -- Dec 2025}
+  {LFX Mentee \textbar{} Go, Kubernetes, Policy-as-Code, CEL, Admission Webhooks}{Remote \textperiodcentered{} San Jose, USA}
+\resumeItemListStart
+  \resumeItem{Extended Kyverno's \textbf{CEL-based policy engine} with a complete suite of \textbf{namespace-scoped policy variants}, enabling tenant namespace owners to define and govern policies without cluster-admin privileges, substantially reducing privilege-escalation surface.}
+  \resumeItem{Delivered \textbf{17+ merged PRs} spanning API types, controllers, admission webhooks, CRD generation, CLI wiring, and full test coverage:}
+  \resumeItemListStart
+    \resumeItem{\textbf{API design \& common compiler interface:} introduced \texttt{NamespacedValidatingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14121}{\underline{\#14121}}), \texttt{NamespacedImageValidatingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14195}{\underline{\#14195}}), \texttt{NamespacedMutatingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14225}{\underline{\#14225}}), \texttt{NamespacedGeneratingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14400}{\underline{\#14400}}), and \texttt{NamespaceDeletingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14050}{\underline{\#14050}}) with a shared compiler contract across policy kinds.}
+    \resumeItem{\textbf{Controller \& webhook wiring:} amended upstream controllers and admission controllers for \texttt{ValidatingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14155}{\underline{\#14155}}), \texttt{DeletingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14098}{\underline{\#14098}}), \texttt{ImageValidatingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14242}{\underline{\#14242}}), and \texttt{GeneratingPolicy} (\href{https://github.com/kyverno/kyverno/pull/14431}{\underline{\#14431}}) to resolve and enforce namespace-scoped variants.}
+    \resumeItem{\textbf{Distribution:} generated and copied CRDs to the Kyverno CLI bundle for \texttt{nvpol} and \texttt{ndpol} (\href{https://github.com/kyverno/kyverno/pull/14316}{\underline{\#14316}}), keeping \texttt{kyverno apply} and policy validation parity with cluster-scoped resources.}
+    \resumeItem{\textbf{Test coverage:} authored unit tests (\href{https://github.com/kyverno/kyverno/pull/14097}{\underline{\#14097}}, \href{https://github.com/kyverno/kyverno/pull/14224}{\underline{\#14224}}) and Chainsaw end-to-end tests wired into CI (\href{https://github.com/kyverno/kyverno/pull/14315}{\underline{\#14315}}, \href{https://github.com/kyverno/kyverno/pull/14449}{\underline{\#14449}}), guarding regression across all namespaced policy kinds.}
+  \resumeItemListEnd
+\resumeItemListEnd
+
+% -------- Google Summer of Code Prometheus Operator --------
+\resumeSubheading
+  {\href{https://summerofcode.withgoogle.com}{\underline{Google Summer of Code 2025: Prometheus Operator}} \href{https://summerofcode.withgoogle.com/programs/2025/projects/hZAZORpk}{\faIcon{link}}}{May 2025 -- Sep 2025}
+  {Contributor \textbar{} Go, CEL, Kubernetes CRDs, DaemonSets, AlertManager}{Remote \textperiodcentered{} Raleigh, USA}
+\resumeItemListStart
+  \resumeItem{Stabilized and productionized \textbf{DaemonSet deployment mode} for the \textbf{PrometheusAgent} custom resource, enabling per-node scrape topology required by high-cardinality multi-tenant observability setups.}
+  \resumeItem{Authored robust \textbf{CEL validation rules} on the PrometheusAgent CRD with runtime fallbacks and exhaustive e2e coverage:}
+  \resumeItemListStart
+    \resumeItem{CEL validations for invalid \texttt{replicas} / \texttt{storage} specs (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7588}{\underline{\#7588}}) and invalid \texttt{shards} / \texttt{PVCRetentionClaim} policy specs (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7595}{\underline{\#7595}}).}
+    \resumeItem{CEL prohibitions for \texttt{ScrapeConfigSelector} (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7729}{\underline{\#7729}}) and \texttt{probeSelector} (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7752}{\underline{\#7752}}) under DaemonSet mode, plus remaining validation closure (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7881}{\underline{\#7881}}).}
+  \resumeItemListEnd
+  \resumeItem{Expanded the \textbf{AlertManager} stack by implementing a \textbf{RocketChat receiver} in the \texttt{AlertManagerConfig} CRD (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7328}{\underline{\#7328}}), unlocking native RocketChat alerting for teams running chat-based incident response.}
+  \resumeItem{Upstream hygiene: refactored \texttt{OVHCloudSDConfig} (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7238}{\underline{\#7238}}) and introduced a \textbf{GitHub Actions linter} workflow (\href{https://github.com/prometheus-operator/prometheus-operator/pull/7123}{\underline{\#7123}}) to guard action-file quality across the repo.}
+\resumeItemListEnd
+
+% -------- Hooman Digital --------
+\resumeSubheading
+  {\href{https://hooman.digital/}{\underline{Hooman Digital}}}{Apr 2025 -- Sep 2025}
+  {DevOps Intern \textbar{} Docker, Go, Terraform, vLLM, Ollama, MLOps}{Remote}
+\resumeItemListStart
+  \resumeItem{Authored a production-grade \href{https://registry.terraform.io/providers/HoomanDigital/nosana/latest}{\underline{\textbf{Terraform provider for Nosana}}} in \textbf{Go}, automating GPU-container deployment on decentralized GPU infrastructure, published to the Terraform Registry under the \texttt{HoomanDigital/nosana} namespace.}
+  \resumeItem{Optimized \textbf{Dockerized environments} for \textbf{GPU-accelerated inference workloads} (\textbf{vLLM}, \textbf{Ollama}) with careful resource-constraint tuning, reducing cold-start times and stabilizing throughput under concurrent model loads.}
+\resumeItemListEnd
+
+% -------- WeCofy --------
+\resumeSubheading
+  {\href{https://wecofy.com/}{\underline{WeCofy}}}{Dec 2024 -- Apr 2025}
+  {Full-Stack Intern \textbar{} Next.js, Node.js, Express, MongoDB}{Remote}
+\resumeItemListStart
+  \resumeItem{Enhanced \textbf{Juristo}, an AI-powered legal platform, with full-stack feature development improving document workflow scalability and accessibility across client tiers.}
+  \resumeItem{Built a \textbf{developer API service} with subscription tiers, dynamic \textbf{rate-limiting}, and integrated \textbf{ZeptoMail} transactional email and \textbf{Firebase Cloud Messaging} for push notifications.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-10pt}
+
+% -------------------- OPEN SOURCE --------------------
+\section{Open Source \& Community}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {\textbf{CNCF Kyverno}: \textit{Namespaced Policy Variants} \textbar{} \href{https://github.com/kyverno/kyverno/pulls?q=author\%3Aslashexx}{\underline{PRs}}}{}
+    \resumeItemListStart
+      \resumeItem{Shipped a complete policy family (\texttt{NamespacedValidatingPolicy}, \texttt{NamespacedImageValidatingPolicy}, \texttt{NamespacedMutatingPolicy}, \texttt{NamespacedGeneratingPolicy}, \texttt{NamespaceDeletingPolicy}) alongside a shared compiler interface, admission webhook wiring, and CI-wired Chainsaw tests.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Prometheus Operator}: \textit{DaemonSet Mode Stabilization} \textbar{} \href{https://github.com/prometheus-operator/prometheus-operator/pulls?q=author\%3Aslashexx}{\underline{PRs}}}{}
+    \resumeItemListStart
+      \resumeItem{Drove CEL-based CRD validation and runtime fallbacks for PrometheusAgent DaemonSet deployments, end-to-end tests across shards/replicas/storage/volume paths, and AlertManagerConfig RocketChat integration.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Terraform Provider: Nosana (Hooman Digital)} \textbar{} \href{https://registry.terraform.io/providers/HoomanDigital/nosana/latest}{\underline{registry.terraform.io}}}{}
+    \resumeItemListStart
+      \resumeItem{Authored a Go-based Terraform provider for programmatic GPU-container deployment on the Nosana decentralized compute network, published on the Terraform Registry.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-10pt}
+
+% -------------------- ACHIEVEMENTS --------------------
+\section{Achievements \& Speaking}
+\begin{itemize}[leftmargin=0.15in, label={}, itemsep=0.2em, topsep=2pt]
+  \item \textbf{Accepted Speaker, KubeCon + CloudNativeCon India 2026}: ``Why Your Cluster-Wide Policies Are a Risk (And What to Do About It)'', a talk on tenant-scoped admission control informed by the Kyverno namespaced-policy work shipped during LFX mentorship.
+  \item \textbf{Winner, Smart India Hackathon 2025}: placed \textbf{1st out of 820{,}000 participants} in India's largest government-sponsored hackathon, across problem statements released by ministries and partner organizations.
+  \item \textbf{Google Summer of Code 2025 Contributor}: selected under \textbf{Prometheus Operator} (CNCF) to stabilize PrometheusAgent DaemonSet mode and extend AlertManager receivers.
+  \item \textbf{LFX Mentee 2025}: selected for the CNCF Kyverno mentorship track focused on namespaced CEL-based policy variants.
+\end{itemize}
+\vspace{-8pt}
+
+% -------------------- SKILLS --------------------
+\section{Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages:} Go, Java, TypeScript, Python, Bash, Lua, SQL \\
+    \textbf{Infrastructure as Code:} Terraform, Terragrunt, Ansible, Helm, Kustomize \\
+    \textbf{Orchestration \& Platform:} Kubernetes (EKS), Docker, ArgoCD, KEDA, Kyverno, Atlantis \\
+    \textbf{Observability:} Prometheus, VictoriaMetrics, Grafana, Loki, Alloy, Beyla (eBPF), Vector, Quickwit, Datadog, YACE \\
+    \textbf{Data \& Messaging:} Kafka (MSK), PostgreSQL (Aurora), DynamoDB, Redis, RudderStack \\
+    \textbf{Cloud:} AWS (EKS, ECR, RDS, MSK, DynamoDB, Secrets Manager, S3, IAM, KMS, Pod Identity), Hetzner Cloud \\
+    \textbf{Edge \& Security:} Kong Gateway (Lua plugins, JWT, rate limiting), Traefik, Let's Encrypt, External Secrets, KMS envelope encryption \\
+    \textbf{Backend Frameworks:} Node.js, Express, Next.js, Gin
+  }}
+\end{itemize}
+
+\end{document}
